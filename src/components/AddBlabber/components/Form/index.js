@@ -16,7 +16,19 @@ class Form extends React.Component {
           onChange={(event) => { this.setState({ text: event.currentTarget.value }) }}
         />
 
-        <button>Post</button>
+        <button onClick={() => {
+          fetch('https://blabber-api.herokuapp.com/blabbers', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text: this.state.text })
+          })
+            .then(response => response.json())
+            .then(json => {
+              console.log(json)
+            })
+        }}>Post</button>
       </div>
     )
   }

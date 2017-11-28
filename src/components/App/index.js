@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://api.ortenblabber.com/blabbers')
+    fetch('https://blabber-api.herokuapp.com/blabbers')
       .then(response => {
         return response.json()
       })
@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <Header />
 
