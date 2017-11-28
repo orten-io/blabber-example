@@ -10,6 +10,8 @@ class App extends React.Component {
   constructor(props) {
     super(props)
 
+    this.addBlabber = this.addBlabber.bind(this)
+
     this.state = {
       blabbers: [],
     }
@@ -25,13 +27,17 @@ class App extends React.Component {
       })
   }
 
+  addBlabber(blabber) {
+    this.setState({
+      blabbers: [blabber, ...this.state.blabbers]
+    })
+  }
+
   render() {
     return (
       <div>
         <Header />
-
-        <AddBlabber />
-
+        <AddBlabber addBlabber={this.addBlabber} />
         <BlabberList blabbers={this.state.blabbers} />
       </div>
     )

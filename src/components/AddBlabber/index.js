@@ -14,7 +14,7 @@ class AddBlabber extends React.Component {
     return (
       <div>
         {this.state.isFormVisible
-          ? <Form />
+          ? <Form addBlabber={this.props.addBlabber}/>
           : <Button handleClick={() => { this.setState({ isFormVisible: true }) }} />}
       </div>
     )

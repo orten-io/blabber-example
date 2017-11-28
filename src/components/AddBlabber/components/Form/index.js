@@ -24,10 +24,10 @@ class Form extends React.Component {
             },
             body: JSON.stringify({ text: this.state.text })
           })
-            .then(response => response.json())
-            .then(json => {
-              console.log(json)
-            })
+          .then(response => response.json())
+          .then(blabber => {
+            this.props.addBlabber(blabber)
+          })
         }}>Post</button>
       </div>
     )
